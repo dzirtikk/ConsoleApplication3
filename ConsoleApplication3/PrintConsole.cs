@@ -22,6 +22,6 @@ namespace ConsoleApplication3
             Console.WriteLine("_____|_____|_____");
 
         }
-        
     }
+    
 }
