@@ -8,7 +8,7 @@ namespace ConsoleApplication3
 {
     class Program
     {
-        static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        static char[] arr = { '-', '-', '-', '-', '-', '-', '-', '-', '-' };
         public static int x;
         public static int PlayNumb = 1;
         static int flag = 0;
@@ -18,15 +18,14 @@ namespace ConsoleApplication3
         }
         static void Gameplay()
         {
-            var print = new PrintConsole();
-            var gamep = new GameplayC();
-            print.DrawDesk(arr);
+            var gamep = new GameplayC(new Winnerchecker(),new PrintConsole());
+            gamep.CreateDesk(arr);
             //Ход
-            while (flag != 1 && flag != -1)
+            while (flag == 0)
             {
                 gamep.Khod(arr);
-                print.DrawDesk(arr);
-                flag = gamep.ChecWin(arr);
+                
+                flag = gamep.HasWinner(arr);
             }
             //Конец игры
             Console.WriteLine("Игра закончена!");
